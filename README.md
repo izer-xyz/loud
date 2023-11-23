@@ -1,2 +1,5 @@
-# openwrt-imagebuilder-action-template
-Template repo for [openwrt-imagebuilder-action](https://github.com/izer-xyz/openwrt-imagebuilder-action)
+# Loud
+OpenWRT image for a Wifi speaker
+
+References:
+ * [openwrt-imagebuilder-action](https://github.com/izer-xyz/openwrt-imagebuilder-action)
