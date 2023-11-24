@@ -1,1 +1,2 @@
-/^CONFIG_disable_a_config/ s/^#*/#/
+/^CONFIG_TARGET_ROOTFS_EXT4FS/ s/^#*/#/
+/^CONFIG_GRUB_EFI_IMAGES/ s/^#*/#/
