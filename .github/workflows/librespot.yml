@@ -23,6 +23,8 @@ jobs:
         mv openwrt-sdk* owsdk
         export STAGING_DIR=./owsdk/staging_dir
         export PATH=./owsdk/staging_dir/toolchain-arm_arm1176jzf-s+vfp_gcc-12.3.0_musl_eabi/bin:/root/.cargo/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin
+        ls -la owsdk/staging_dir
+        arm-openwrt-linux-gcc --help
         mkdir .cargo
         echo '[target.armv7-unknown-linux-musleabihf]' > .cargo/config
         echo 'linker = "arm-openwrt-linux-gcc"' >> .cargo/config
