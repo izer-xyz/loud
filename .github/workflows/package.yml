@@ -10,6 +10,9 @@ on:
 
 jobs:
 
+  compile-librespot:
+    uses: ./.github/workflows/librespot.yml
+  
   create-image:
   
     runs-on: ubuntu-latest
@@ -21,7 +24,8 @@ jobs:
       
       - name: Load configuration from repo
         run: |
-          find .
+          mkdir -p files/usr/bin
+          cp librespot/librespot $_
           cat config
           cat config >> $GITHUB_ENV
        
