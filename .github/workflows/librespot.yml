@@ -1,0 +1,22 @@
+name: Rust
+
+on:
+  workflow_dispatch:
+  
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        repository: librespot-org/librespot
+    - name: Build
+      run: | 
+        # rustup target add mipsel-unknown-linux-musl
+        cargo fetch --target mipsel-unknown-linux-musl --locked
+        cargo build --release --target mipsel-unknown-linux-musl --locked --no-default-features
