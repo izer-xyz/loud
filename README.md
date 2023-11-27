@@ -11,3 +11,5 @@ OpenWRT image for a Wifi speaker
 References:
  * https://openwrt.org/docs/guide-user/hardware/audio/usb.audio 
  * [openwrt-imagebuilder-action](https://github.com/izer-xyz/openwrt-imagebuilder-action)
+ * Build librespot - https://gist.github.com/michcioperz/99b40b861b158e2cbff507288d804c6b
+ * Build rust library - https://blog.dend.ro/building-rust-for-routers/
