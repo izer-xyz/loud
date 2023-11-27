@@ -18,6 +18,7 @@ jobs:
     - name: Build
       run: | 
         set
+        exit 5
         pwd
         curl -Os https://downloads.openwrt.org/releases/23.05.2/targets/bcm27xx/bcm2708/openwrt-sdk-23.05.2-bcm27xx-bcm2708_gcc-12.3.0_musl_eabi.Linux-x86_64.tar.xz
         tar xf openwrt-sdk-*.tar.* && rm openwrt-sdk-*.tar.*
