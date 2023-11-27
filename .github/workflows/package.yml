@@ -14,7 +14,8 @@ jobs:
     uses: ./.github/workflows/librespot.yml
   
   create-image:
-  
+    needs: compile-librespot
+    
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
