@@ -34,6 +34,7 @@ jobs:
         echo 'codegen-units = 1' >> Cargo.toml
         echo 'opt-level = "s"' >> Cargo.toml
         set
+        ls -la ./sdk/staging_dir/toolchain-arm_arm1176jzf-s+vfp_gcc-12.3.0_musl_eabi/bin
         arm-openwrt-linux-gcc --help
         rustup target add armv7-unknown-linux-musleabihf
         cargo fetch --target armv7-unknown-linux-musleabihf --locked
