@@ -20,6 +20,7 @@ jobs:
         pwd
         curl -Os https://downloads.openwrt.org/releases/23.05.2/targets/bcm27xx/bcm2708/openwrt-sdk-23.05.2-bcm27xx-bcm2708_gcc-12.3.0_musl_eabi.Linux-x86_64.tar.xz
         mv openwrt-sdk* sdk
+        ls -la ./sdk/staging_dir
         export STAGING_DIR=./sdk/staging_dir
         export PATH=./sdk/staging_dir/toolchain-arm_arm1176jzf-s+vfp_gcc-12.3.0_musl_eabi/bin:/root/.cargo/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin
         mkdir .cargo
