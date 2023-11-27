@@ -23,8 +23,8 @@ jobs:
         export STAGING_DIR=/root/sdk/staging_dir
         export PATH=/root/sdk/staging_dir/toolchain-arm_arm1176jzf-s+vfp_gcc-12.3.0_musl_eabi/bin:/root/.cargo/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin
         mkdir .cargo
-        echo '[target.mipsel-unknown-linux-musl]' > .cargo/config
-        echo 'linker = "mipsel-openwrt-linux-gcc"' >> .cargo/config
+        echo '[target.armv7-unknown-linux-musleabihf]' > .cargo/config
+        echo 'linker = "arm-openwrt-linux-gcc"' >> .cargo/config
         echo '' >> Cargo.toml
         echo '[profile.release]' >> Cargo.toml
         echo 'lto = "thin"' >> Cargo.toml
@@ -33,6 +33,6 @@ jobs:
         echo 'incremental = false' >> Cargo.toml
         echo 'codegen-units = 1' >> Cargo.toml
         echo 'opt-level = "s"' >> Cargo.toml
-        rustup target add mipsel-unknown-linux-musl
-        cargo fetch --target mipsel-unknown-linux-musl --locked
-        cargo build --release --target mipsel-unknown-linux-musl --locked --no-default-features
+        rustup target add armv7-unknown-linux-musleabihf
+        cargo fetch --target armv7-unknown-linux-musleabihf --locked
+        cargo build --release --target armv7-unknown-linux-musleabihf --locked --no-default-features
