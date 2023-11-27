@@ -17,6 +17,6 @@ jobs:
         repository: librespot-org/librespot
     - name: Build
       run: | 
-        # rustup target add mipsel-unknown-linux-musl
+        rustup target add mipsel-unknown-linux-musl
         cargo fetch --target mipsel-unknown-linux-musl --locked
         cargo build --release --target mipsel-unknown-linux-musl --locked --no-default-features
