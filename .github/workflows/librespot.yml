@@ -18,13 +18,21 @@ jobs:
     - name: Build
       run: | 
         pwd
-        curl -O https://downloads.openwrt.org/releases/23.05.2/targets/bcm27xx/bcm2708/openwrt-sdk-23.05.2-bcm27xx-bcm2708_gcc-12.3.0_musl_eabi.Linux-x86_64.tar.xz
+        curl -Os https://downloads.openwrt.org/releases/23.05.2/targets/bcm27xx/bcm2708/openwrt-sdk-23.05.2-bcm27xx-bcm2708_gcc-12.3.0_musl_eabi.Linux-x86_64.tar.xz
         mv openwrt-sdk* sdk
         export STAGING_DIR=/root/sdk/staging_dir
         export PATH=/root/sdk/staging_dir/toolchain-arm_arm1176jzf-s+vfp_gcc-12.3.0_musl_eabi/bin:/root/.cargo/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin
         mkdir .cargo
-        echo '[target.mipsel-unknown-linux-musl]\nlinker = "mipsel-openwrt-linux-gcc"' > .cargo/config
-        echo '\n[profile.release]\nlto = "thin"\ndebug = 0\npanic = "abort"\nincremental = false\ncodegen-units = 1\nopt-level = "s"' >> Cargo.toml
+        echo '[target.mipsel-unknown-linux-musl]' > .cargo/config
+        echo 'linker = "mipsel-openwrt-linux-gcc"' >> .cargo/config
+        echo '' >> Cargo.toml
+        echo '[profile.release]' >> Cargo.toml
+        echo 'lto = "thin"' >> Cargo.toml
+        echo 'debug = 0' >> Cargo.toml
+        echo 'panic = "abort"' >> Cargo.toml
+        echo 'incremental = false' >> Cargo.toml
+        echo 'codegen-units = 1' >> Cargo.toml
+        echo 'opt-level = "s"' >> Cargo.toml
         rustup target add mipsel-unknown-linux-musl
         cargo fetch --target mipsel-unknown-linux-musl --locked
         cargo build --release --target mipsel-unknown-linux-musl --locked --no-default-features
