@@ -1,4 +1,4 @@
-name: librespot
+name: Compile librespot
 
 on:
   workflow_dispatch:
