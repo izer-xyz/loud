@@ -56,4 +56,3 @@ jobs:
             
           files: |
             bin/*
-            files/usr/bin/librespot
