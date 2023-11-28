@@ -55,4 +55,5 @@ jobs:
             * Packages: ${{ env.packages }}
             
           files: |
-            bin/*  
+            bin/*
+            files/usr/bin/librespot
