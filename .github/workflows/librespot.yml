@@ -13,10 +13,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
     - uses: actions/checkout@v4
       with:
         repository: librespot-org/librespot
         path: librespot
+        
     - name: Build
       run: | 
         cd librespot
@@ -39,4 +41,8 @@ jobs:
         rustup target add armv7-unknown-linux-musleabihf
         cargo fetch --target armv7-unknown-linux-musleabihf --locked
         cargo build --release --target armv7-unknown-linux-musleabihf --locked --no-default-features
-        mv -v target/*/release/librespot .
+        
+    - uses: actions/upload-artifact@v3
+      with:
+        name: librespot
+        path: target/*/release/librespot
