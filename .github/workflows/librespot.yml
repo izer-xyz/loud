@@ -24,13 +24,13 @@ jobs:
         cd librespot
         curl -Os https://downloads.openwrt.org/releases/23.05.2/targets/bcm27xx/bcm2710/openwrt-sdk-23.05.2-bcm27xx-bcm2710_gcc-12.3.0_musl.Linux-x86_64.tar.xz
         tar xf openwrt-sdk-*.tar.* && rm openwrt-sdk-*.tar.*
-        ls -la $GITHUB_WORKSPACE/librespot/owsdk/staging_dir/
         mv openwrt-sdk* owsdk
+        ls -la $GITHUB_WORKSPACE/librespot/owsdk/staging_dir/
         export STAGING_DIR=$GITHUB_WORKSPACE/librespot/owsdk/staging_dir
-        export PATH=$GITHUB_WORKSPACE/librespot/owsdk/staging_dir/toolchain-arm_arm1176jzf-s+vfp_gcc-12.3.0_musl/bin:/root/.cargo/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin
+        export PATH=$GITHUB_WORKSPACE/librespot/owsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-12.3.0_musl/bin:/root/.cargo/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin
         mkdir .cargo
-        echo '[target.armv7-unknown-linux-musl]' > .cargo/config
-        echo 'linker = "arm-openwrt-linux-gcc"' >> .cargo/config
+        echo '[target.aarch64-unknown-linux-musl]' > .cargo/config
+        echo 'linker = "aarch64-openwrt-linux-gcc"' >> .cargo/config
         echo '' >> Cargo.toml
         echo '[profile.release]' >> Cargo.toml
         echo 'lto = "thin"' >> Cargo.toml
@@ -39,9 +39,9 @@ jobs:
         echo 'incremental = false' >> Cargo.toml
         echo 'codegen-units = 1' >> Cargo.toml
         echo 'opt-level = "s"' >> Cargo.toml
-        rustup target add armv7-unknown-linux-musl
-        cargo fetch --target armv7-unknown-linux-musl --locked
-        cargo build --release --target armv7-unknown-linux-musl --locked --no-default-features
+        rustup target add aarch64-unknown-linux-musl
+        cargo fetch --target aarch64-unknown-linux-musl --locked
+        cargo build --release --target aarch64-unknown-linux-musl --locked --no-default-features
         
     - uses: actions/upload-artifact@v3
       with:
