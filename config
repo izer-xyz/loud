@@ -3,7 +3,7 @@ profile=bcm27xx-bcm2710
 
 openwrt_version=23.05.2
 
-packages=kmod-usb-serial-ftdi kmod-usb-gadget-serial kmod-usb-serial alsa-utils avahi-daemon kmod-sound-soc-justboom-dac block-mount block-mount luci-app-statistics collectd collectd-mod-cpu collectd-mod-load collectd-mod-network collectd-mod-ping collectd-mod-thermal vxlan kmod-vxlan luci -firewall4 -dnsmasq -partx-utils -ppp -ppp-mod-pppoe -kmod-usb-hid
+packages=alsa-utils avahi-daemon kmod-sound-soc-justboom-dac block-mount luci-app-statistics collectd collectd-mod-cpu collectd-mod-load collectd-mod-network collectd-mod-ping collectd-mod-thermal luci partx-utils -ppp -ppp-mod-pppoe -kmod-usb-hid
 
 disabled_services=
 
