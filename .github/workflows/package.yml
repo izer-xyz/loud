@@ -10,11 +10,11 @@ on:
 
 jobs:
 
-  compile-librespot:
-    uses: ./.github/workflows/librespot.yml
+  #compile-librespot:
+    #uses: ./.github/workflows/librespot.yml
   
   create-image:
-    needs: compile-librespot
+    #needs: compile-librespot
     
     runs-on: ubuntu-latest
     timeout-minutes: 10
