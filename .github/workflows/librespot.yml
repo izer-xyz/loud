@@ -46,4 +46,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: librespot
-        path: librespot/target/*/release/librespot
+        path: librespot/target/aarch64-unknown-linux-musl/release/librespot
