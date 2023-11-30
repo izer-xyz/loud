@@ -32,7 +32,10 @@ jobs:
         with:
          name: librespot
          path: files/usr/bin/
-      
+         
+      - name: Fix executable
+        run: chmod +x files/usr/bin/*
+        
       - name: Build openwrt image
         uses: izer-xyz/openwrt-imagebuilder-action@v4
         with:
