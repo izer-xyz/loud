@@ -28,10 +28,10 @@ jobs:
           cat config
           cat config >> $GITHUB_ENV
       
-      #- uses: actions/download-artifact@v3
-      #  with:
-      #   name: librespot
-      #   path: files/usr/bin/
+      - uses: actions/download-artifact@v3
+        with:
+         name: librespot
+         path: files/usr/bin/
       
       - name: Build openwrt image
         uses: izer-xyz/openwrt-imagebuilder-action@v4
