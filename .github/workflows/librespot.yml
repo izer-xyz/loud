@@ -30,10 +30,9 @@ jobs:
     - name: Build
       run: | 
         GCC_VERSION=12.3.0
-        ARCH=aarch65
-        echo gcc versio  ${GCC_VERSION}
+        ARCH=aarch64
         cd librespot
-        curl -Os https://downloads.openwrt.org/releases/${{ env.openwrt_version }}/targets/bcm27xx/bcm2708/openwrt-sdk-${{ env.openwrt_version }}-${{ env.image }}_gcc-${GCC_VERSION}_musl.Linux-x86_64.tar.xz
+        echo curl -Os https://downloads.openwrt.org/releases/${{ env.openwrt_version }}/targets/bcm27xx/bcm2708/openwrt-sdk-${{ env.openwrt_version }}-${{ env.image }}_gcc-${GCC_VERSION}_musl.Linux-x86_64.tar.xz
         tar xf openwrt-sdk-*.tar.* && rm openwrt-sdk-*.tar.*
         mv openwrt-sdk* owsdk
         ls -la $GITHUB_WORKSPACE/librespot/owsdk/staging_dir/
