@@ -3,7 +3,13 @@ OpenWRT image for a Wifi speaker
 
  * [ ] Minimal image
  * [ ] RPi (zero?) 
- * [ ] DAC support (https://shop.justboom.co/products/justboom-amp-zero-phat) 
+ * [ ] DAC support (https://shop.justboom.co/products/justboom-amp-zero-phat)
+
+       ```
+       dtoverlay=i2s-mmap
+       dtoverlay=justboom-dac
+       ```
+
  * [ ] Wifi config
  * [ ] Spotify
    * Decision docker VS host ?   
