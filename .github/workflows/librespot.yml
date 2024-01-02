@@ -37,7 +37,7 @@ jobs:
         mv openwrt-sdk* owsdk
         ls -la $GITHUB_WORKSPACE/librespot/owsdk/staging_dir/
         export STAGING_DIR=$GITHUB_WORKSPACE/librespot/owsdk/staging_dir
-        export PATH=$GITHUB_WORKSPACE/librespot/owsdk/staging_dir/toolchain-arm_cortex-a53_gcc-$GCC_VERSION_musl/bin:/root/.cargo/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin
+        export PATH=$GITHUB_WORKSPACE/librespot/owsdk/staging_dir/toolchain-arm_arm1176jzf-s+vfp_gcc-12.3.0_musl_eabi/bin:/root/.cargo/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin
         mkdir .cargo
         echo '[target.armv7-unknown-linux-musleabihf]' > .cargo/config
         echo 'linker = "arm-linux-musleabihf-gcc"' >> .cargo/config
