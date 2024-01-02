@@ -37,7 +37,7 @@ jobs:
         run: chmod +x files/usr/bin/*
         
       - name: Build openwrt image
-        uses: izer-xyz/openwrt-imagebuilder-action@v5
+        uses: izer-xyz/openwrt-imagebuilder-action@v6
         with:
           image: ${{ env.image }}
           openwrt-version: ${{ env.openwrt_version }}
