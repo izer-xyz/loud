@@ -1,3 +1,4 @@
 #!/bin/sh
 service firewall stop
 service firewall disable
+exit 0
