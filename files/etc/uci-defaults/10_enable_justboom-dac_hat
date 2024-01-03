@@ -1,0 +1,8 @@
+#!/bin/sh 
+
+grep -qxF 'dtoverlay=i2s-mmap' /boot/config.txt \
+  || echo 'dtoverlay=i2s-mmap' >> /boot/config.txt
+
+grep -qxF 'dtoverlay=justboom-dac' /boot/config.txt \
+  || echo 'dtoverlay=justboom-dac' >> /boot/config.txt
+
