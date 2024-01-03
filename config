@@ -3,7 +3,7 @@ image=bcm27xx-bcm2708
 
 openwrt_version=23.05.2
 
-packages=librespot alsa-utils avahi-daemon kmod-sound-soc-justboom-dac block-mount luci-app-statistics collectd collectd-mod-cpu collectd-mod-load collectd-mod-network collectd-mod-ping collectd-mod-thermal luci partx-utils -ppp -ppp-mod-pppoe -kmod-usb-hid
+packages=alsa-utils avahi-daemon kmod-sound-soc-justboom-dac block-mount luci-app-statistics collectd collectd-mod-cpu collectd-mod-load collectd-mod-network collectd-mod-ping collectd-mod-thermal luci partx-utils -ppp -ppp-mod-pppoe -kmod-usb-hid
 
 disabled_services=
 
