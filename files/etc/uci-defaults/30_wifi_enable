@@ -1,9 +1,12 @@
 #!/bin/sh
 
-[ "`uci get wireless.@wifi-device[0].disabled`" != "0" ] && exit 0
+[ "`uci get wireless.@wifi-device[0].disabled`" != "0" ] && exit 0 # only enable if disabled
+[ "`uci get wireless.@wifi-device[0].mode`" == "sta" ] && exit 0   # only enable if not wifi client mode 
 
 uci set wireless.@wifi-device[0].disabled=0
 uci set wireless.@wifi-iface[0].disabled="0"
 uci set wireless.@wifi-iface[0].ssid="set-me-loud"
+
 uci commit wireless
+
 exit 0
