@@ -20,16 +20,16 @@ uci set wireless.wifinet1.encryption='psk2'
 uci set wireless.wifinet1.ssid="$LOUD_WIFI_SSID"
 uci set wireless.wifinet1.key="$LOUD_WIFI_KEY"
 
-uci set librespot.librespot.device_name="$LOUD_HOSTNAME"
+#uci set librespot.librespot.device_name="$LOUD_HOSTNAME"
 
 uci commit network
 uci commit wireless
 uci commit system
 
-uci commit librespot
+#uci commit librespot
 
 service system reload
 service network reload
-service librespot enable
+#service librespot enable
 
 reboot
