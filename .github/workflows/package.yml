@@ -40,7 +40,6 @@ jobs:
           debug: ${{ env.debug }}
           files: files
           disabled-services: ${{ env.disabled_services }}
-          rootfs-size: 512
       
       - name: Release
         uses: softprops/action-gh-release@v1
