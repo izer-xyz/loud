@@ -28,8 +28,8 @@ uci commit system
 
 uci commit librespot
 
-/etc/init.d/system reload
-/etc/init.d/network reload
-#/etc/init.d/librespot restart
+service system reload
+service network reload
+service librespot enable
 
 reboot
