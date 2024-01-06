@@ -18,6 +18,8 @@ jobs:
     steps:
       
       - uses: actions/checkout@v3
+        with: 
+          ref: ${{ github.event.inputs.branch }}
       
       - name: Load configuration from repo
         run: |
@@ -40,7 +42,6 @@ jobs:
           debug: ${{ env.debug }}
           files: files
           disabled-services: ${{ env.disabled_services }}
-          rootfs-size: 512
       
       - name: Release
         uses: softprops/action-gh-release@v1
