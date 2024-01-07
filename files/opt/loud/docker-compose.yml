@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+
+  spotify:
+    image: tmigone/librespot:0.3.1
+    command: ["/usr/bin/librespot", "-n", "$NAME 🔊", "--initial-volume", "0$INITIAL_VOLUME", "-c", "/var/cache/librespot", "--backend", "alsa"]
+    container_name: spotify
+    privileged: true
+    network_mode: host
+    volumes:
+      - spotifycache:/var/cache/librespot
+
+volumes:
+  spotifycache:
+    driver_opts:
+      type: tmpfs
+      device: tmpfs
