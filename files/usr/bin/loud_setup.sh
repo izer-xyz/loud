@@ -7,12 +7,14 @@ read -p "Wifi Key: " LOUD_WIFI_KEY
 
 # if partition doesn't exist -> new SD card
 if [ "`find /dev -name mmcblk0p3`" == "" ]; then
+  echo Create partition
   parted -a optimal /dev/mmcblk0 mkpart primary ext4 612M 100% 
   mkfs.ext4 -F /dev/mmcblk0p3 &>/dev/null
 fi
 
 # if mount doesn't exist
 if [ "`grep '/mnt' /etc/config/fstab`" == "" ]; then
+  echo Mount /mnt/ partition 
   mount /dev/mmcblk0p3 /mnt
   block detect | uci import fstab
 
@@ -42,15 +44,18 @@ uci set dockerd.globals.data_root='/mnt/docker/'
 
 uci commit 
 
+echo Change hostname
 service system reload
+echo Connect to Wifi
 service network reload
 
+echo Wait 7s for docker to restart
 service dockerd restart
-
-echo waiting 7s for docker to restart
 sleep 7
 
+echo Load offline docker images 
 docker load --input /opt/loud/docker-images.tar
+echo Bring up the docker stack 
 docker stack up --compose-file /opt/loud/docker-compose.yml loud
 
 echo "Recommended to <reboot> the system." 
