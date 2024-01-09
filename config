@@ -3,7 +3,7 @@ image=bcm27xx-bcm2710
 
 openwrt_version=23.05.2
 
-packages=dockerd docker kmod-sound-soc-justboom-dac block-mount luci-app-statistics collectd collectd-mod-cpu collectd-mod-load collectd-mod-network collectd-mod-ping collectd-mod-thermal luci cfdisk -dnsmasq -partx-utils -firewall4 -ppp -ppp-mod-pppoe -kmod-usb-hid
+packages=dockerd docker kmod-sound-soc-justboom-dac luci-app-statistics collectd collectd-mod-cpu collectd-mod-load collectd-mod-network collectd-mod-ping collectd-mod-thermal luci block-mount parted -dnsmasq -partx-utils -ppp -ppp-mod-pppoe -kmod-usb-hid
 
 disabled_services=firewall
 
