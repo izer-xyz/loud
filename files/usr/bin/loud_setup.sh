@@ -53,9 +53,10 @@ echo Wait 7s for docker to restart
 service dockerd restart
 sleep 7
 
+cd /opt/loud/
 echo Load offline docker images 
-docker load --input /opt/loud/docker-images.tar
+docker load --input docker-images.tar
 echo Bring up the docker stack 
-docker stack up --compose-file /opt/loud/docker-compose.yml loud
+docker compose up
 
 echo "Recommended to <reboot> the system." 
