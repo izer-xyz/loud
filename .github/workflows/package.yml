@@ -25,6 +25,10 @@ jobs:
         run: |
           cat config
           cat config >> $GITHUB_ENV
+          docker pull --platform arm64 portainer/agent:latest
+          docker pull --platform arm64 tmigone/librespot:0.3.1
+          docker pull --platform arm64 mikebrady/shairport-sync:classic
+          docker save -o files/opt/loud/docker-images.tar portainer/agent:latest tmigone/librespot:0.3.1 mikebrady/shairport-sync:classic
       
       - uses: robinraju/release-downloader@v1.8
         with:
@@ -42,6 +46,7 @@ jobs:
           debug: ${{ env.debug }}
           files: files
           disabled-services: ${{ env.disabled_services }}
+          rootfs-size: 512
       
       - name: Release
         uses: softprops/action-gh-release@v1
