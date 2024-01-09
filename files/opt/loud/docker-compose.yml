@@ -2,15 +2,30 @@ version: '3'
 
 services:
 
+  portainer_agent:
+    image: portainer/agent:latest
+    restart: unless-stopped
+    ports: 
+      - 9001:9001
+    volumes: 
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /mnt/docker/volumes:/var/lib/docker/volumes
+  
   spotify:
     image: tmigone/librespot:0.3.1
     command: ["/usr/bin/librespot", "-n", "$NAME 🔊", "--initial-volume", "0$INITIAL_VOLUME", "-c", "/var/cache/librespot", "--backend", "alsa"]
     container_name: spotify
-    restart: always
     privileged: true
+    restart: unless-stopped
     network_mode: host
     volumes:
       - spotifycache:/var/cache/librespot
+      
+  airplay:
+    image: mikebrady/shairport-sync:classic
+    container_name: airplay
+    restart: unless-stopped
+    network_mode: host
 
 volumes:
   spotifycache:
