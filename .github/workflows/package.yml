@@ -29,6 +29,7 @@ jobs:
           docker pull --platform arm64 tmigone/librespot:0.3.1
           docker pull --platform arm64 mikebrady/shairport-sync:classic
           docker save -o files/opt/loud/docker-images.tar portainer/agent:latest tmigone/librespot:0.3.1 mikebrady/shairport-sync:classic
+          chmod +r files/opt/loud/docker-images.tar
       
       - uses: robinraju/release-downloader@v1.8
         with:
