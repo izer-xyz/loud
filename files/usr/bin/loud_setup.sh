@@ -45,4 +45,12 @@ uci commit
 service system reload
 service network reload
 
-reboot
+service docker restart
+
+echo waiting 7s for docker to restart
+sleep 7
+
+docker load --input /opt/loud/docker-images.tar
+docker stack up --compose-file /opt/loud/docker-compose.yml loud
+
+echo "Recommended to <reboot> the system." 
