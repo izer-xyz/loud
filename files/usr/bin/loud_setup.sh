@@ -49,14 +49,6 @@ service system reload
 echo Connect to Wifi
 service network reload
 
-echo Wait 7s for docker to restart
-service dockerd restart
-sleep 7
-
-cd /opt/loud/
-echo Load offline docker images 
-docker load --input docker-images.tar
-echo Bring up the docker stack 
-docker compose up
-
 echo "Recommended to <reboot> the system." 
+
+reboot
