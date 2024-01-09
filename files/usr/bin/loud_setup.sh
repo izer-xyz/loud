@@ -6,13 +6,13 @@ read -p "Wifi SSID: " LOUD_WIFI_SSID
 read -p "Wifi Key: " LOUD_WIFI_KEY
 
 # if partition doesn't exist -> new SD card
-if [ "`find /dev -name mmcblk0p3`" == "" ]; 
-  parted -a optimal /dev/mmcblk0 mkpart primary ext4 0% 100% 
+if [ "`find /dev -name mmcblk0p3`" == "" ]; then
+  parted -a optimal /dev/mmcblk0 mkpart primary ext4 612M 100% 
   mkfs.ext4 -F /dev/mmcblk0p3 &>/dev/null
 fi
 
 # if mount doesn't exist
-if [ "`grep '/mnt' /etc/config/fstab`" == "" ]; 
+if [ "`grep '/mnt' /etc/config/fstab`" == "" ]; then
   mount /dev/mmcblk0p3 /mnt
   block detect | uci import fstab
 
@@ -45,7 +45,7 @@ uci commit
 service system reload
 service network reload
 
-service docker restart
+service dockerd restart
 
 echo waiting 7s for docker to restart
 sleep 7
