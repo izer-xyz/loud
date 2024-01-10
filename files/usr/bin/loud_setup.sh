@@ -56,6 +56,8 @@ service system reload
 echo Connect to Wifi
 service network reload
 
-echo "Recommended to <reboot> the system." 
+echo Set default volume 
+amixer sset Digital 50%
+alsactl store
 
 reboot
