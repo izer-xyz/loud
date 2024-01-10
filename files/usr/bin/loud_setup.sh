@@ -57,7 +57,7 @@ echo Connect to Wifi
 service network reload
 
 echo Set default volume 
-amixer sset Digital 50%
+amixer sset Digital 70%
 alsactl store
 
 reboot
