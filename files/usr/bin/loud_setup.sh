@@ -52,13 +52,13 @@ uci set librespot.librespot.initial_volume=10
 
 uci commit 
 
+echo Set default volume 
+amixer sset Digital 70%
+alsactl store
+
 echo Change hostname
 service system reload
 echo Connect to Wifi
 service network reload
-
-echo Set default volume 
-amixer sset Digital 70%
-alsactl store
 
 reboot
