@@ -2,5 +2,6 @@
 
 mkdir -p /etc/alsa
 ln -s /etc/alsa/ /var/lib/
+alsactl restore
 
 exit 0
