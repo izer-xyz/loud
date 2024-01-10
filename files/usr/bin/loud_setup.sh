@@ -42,6 +42,11 @@ uci set wireless.wifinet1.key="$LOUD_WIFI_KEY"
 
 uci set dockerd.globals.data_root='/mnt/docker/'
 
+uci set shairport-sync.shairport_sync.enable=1
+uci set shairport-sync.shairport_sync.name='%h'
+
+uci set librespot.librespot.device_name="$LOUD_HOSTNAME"
+
 uci commit 
 
 echo Change hostname
