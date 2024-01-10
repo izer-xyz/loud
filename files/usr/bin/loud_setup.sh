@@ -48,6 +48,7 @@ uci set shairport-sync.shairport_sync.enabled=1
 uci set shairport-sync.shairport_sync.name='%h'
 
 uci set librespot.librespot.device_name="$LOUD_HOSTNAME"
+uci set librespot.librespot.initial_volume=10
 
 uci commit 
 
