@@ -41,8 +41,8 @@ uci set wireless.wifinet1.ssid="$LOUD_WIFI_SSID"
 uci set wireless.wifinet1.key="$LOUD_WIFI_KEY"
 
 uci set dockerd.globals.data_root='/mnt/docker/'
-uci add_list dockerd.globals.host=tcp://0.0.0.0:2375
-uci add_list dockerd.globals.host=unix:///var/run/docker.sock
+uci add_list dockerd.globals.hosts=tcp://0.0.0.0:2375
+uci add_list dockerd.globals.hosts=unix:///var/run/docker.sock
 
 uci set shairport-sync.shairport_sync.enable=1
 uci set shairport-sync.shairport_sync.name='%h'
