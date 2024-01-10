@@ -44,7 +44,7 @@ uci set dockerd.globals.data_root='/mnt/docker/'
 uci add_list dockerd.globals.hosts=tcp://0.0.0.0:2375
 uci add_list dockerd.globals.hosts=unix:///var/run/docker.sock
 
-uci set shairport-sync.shairport_sync.enable=1
+uci set shairport-sync.shairport_sync.enabled=1
 uci set shairport-sync.shairport_sync.name='%h'
 
 uci set librespot.librespot.device_name="$LOUD_HOSTNAME"
