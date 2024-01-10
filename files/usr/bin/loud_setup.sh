@@ -13,7 +13,7 @@ if [ "`find /dev -name mmcblk0p3`" == "" ]; then
 fi
 
 # if mount doesn't exist
-if [ "`grep '/mnt' /etc/config/fstab`" == "" ]; then
+if [ "`grep '/mnt.$' /etc/config/fstab`" == "" ]; then
   echo Mount /mnt/ partition 
   mount /dev/mmcblk0p3 /mnt
   block detect | uci import fstab
