@@ -1,6 +1,6 @@
 # This file is from the default image to store audio state
 
-mkdir -p /var/lib/alsa
-ln -s /etc/asound.state /var/lib/alsa/asound.state
+mkdir -p /etc/alsa
+ln -s /etc/alsa/ /var/lib/
 
 exit 0
