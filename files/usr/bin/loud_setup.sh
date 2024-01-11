@@ -27,32 +27,37 @@ fi
 uci set system.@system[0].hostname="$LOUD_HOSTNAME"
 uci set system.@system[0].timezone='AEST-10AEDT,M10.1.0,M4.1.0/3'
 
-uci del dhcp.lan.ra_slaac                                        
-uci set dhcp.lan.ra='hybrid'                                     
-uci set dhcp.lan.dhcpv6='hybrid'                                 
-                                                                 
-uci del network.lan.ipaddr             
-uci del network.lan.netmask            
-uci del network.lan.ip6assign          
-uci set network.lan.proto='dhcp'                   
-                                                                 
-uci set network.wlan=interface                                   
-uci set network.wlan.proto='dhcp'                                
-                                                                 
-uci set wireless.default_radio0.mode='sta'                       
-uci set wireless.default_radio0.encryption='psk2'     
+echo Change dhcp mode to hybrid
+uci del dhcp.lan.ra_slaac
+uci set dhcp.lan.ra='hybrid'
+uci set dhcp.lan.dhcpv6='hybrid'
+
+echo Change lan to use dhcp 
+uci del network.lan.ipaddr
+uci del network.lan.netmask
+uci del network.lan.ip6assign
+uci set network.lan.proto='dhcp'
+
+echo Create new wlan 
+uci set network.wlan=interface
+uci set network.wlan.proto='dhcp'
+
+echo Change to Wifi client 
+uci set wireless.default_radio0.mode='sta'
+uci set wireless.default_radio0.encryption='psk2'
 uci set wireless.default_radio0.ssid="$LOUD_WIFI_SSID"
-uci set wireless.default_radio0.key="$LOUD_WIFI_KEY"  
+uci set wireless.default_radio0.key="$LOUD_WIFI_KEY"
 uci set wireless.default_radio0.network='wlan'
 
-#uci set dockerd.globals.iptables=0
-#uci set dockerd.globals.data_root='/mnt/docker/'
-#uci add_list dockerd.globals.hosts=tcp://0.0.0.0:2375
-#uci add_list dockerd.globals.hosts=unix:///var/run/docker.sock
+echo Change dockerd config
+uci set dockerd.globals.iptables=0
+uci set dockerd.globals.data_root='/mnt/docker/'
+uci add_list dockerd.globals.hosts=tcp://0.0.0.0:2375
+uci add_list dockerd.globals.hosts=unix:///var/run/docker.sock
 
+echo Configure players
 uci set shairport-sync.shairport_sync.enabled=1
 uci set shairport-sync.shairport_sync.name='%h'
-
 uci set librespot.librespot.device_name="$LOUD_HOSTNAME"
 uci set librespot.librespot.initial_volume=10
 
@@ -62,5 +67,4 @@ echo Set default volume
 amixer sset Digital 70%
 alsactl store
 
-echo reboot
 reboot
