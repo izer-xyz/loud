@@ -1,7 +1,7 @@
 
 image=bcm27xx-bcm2710
 
-openwrt_version=23.05.2
+openwrt_version=23.05.3
 
 packages=syslog-ng -logd alsa-utils librespot shairport-sync-mbedtls dockerd kmod-sound-soc-justboom-dac luci-app-statistics collectd collectd-mod-cpu collectd-mod-load collectd-mod-network collectd-mod-ping collectd-mod-thermal luci block-mount parted kmod-usb-net-rtl8152 -partx-utils -ppp -ppp-mod-pppoe -kmod-usb-hid
 
