@@ -26,8 +26,7 @@ TBD
  * run portainer agent without docker cli
    ```
    ctr -a /var/run/docker/containerd/containerd.sock image pull docker.io/portainer/agent:alpine
-   ctr -a /var/run/docker/containerd/containerd.sock run --rm -t --net-host --mount "type=bind,src=/var
-/run/docker.sock,dst=/var/run/docker.sock" --privileged  docker.io/portainer/agent:alpine pa
+   ctr -a /var/run/docker/containerd/containerd.sock run --rm -t --net-host --mount "type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock,options=rbind:rw" --privileged  docker.io/portainer/agent:alpine pa
   ```
 ## References:
  * https://openwrt.org/docs/guide-user/hardware/audio/usb.audio 
