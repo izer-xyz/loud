@@ -23,7 +23,12 @@ TBD
    * The black lead to GND (3rd pin down)
    * The white lead to TXD on the Pi (4th pin down)
    * The green lead to RXD on the pI (5th pin down)
-  
+ * run portainer agent without docker cli
+   ```
+   ctr -a /var/run/docker/containerd/containerd.sock image pull docker.io/portainer/agent:alpine
+   ctr -a /var/run/docker/containerd/containerd.sock run --rm -t --net-host --mount "type=bind,src=/var
+/run/docker.sock,dst=/var/run/docker.sock" --privileged  docker.io/portainer/agent:alpine pa
+  ```
 ## References:
  * https://openwrt.org/docs/guide-user/hardware/audio/usb.audio 
  * [openwrt-imagebuilder-action](https://github.com/izer-xyz/openwrt-imagebuilder-action)
