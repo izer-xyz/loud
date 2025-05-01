@@ -28,7 +28,7 @@ jobs:
       
       - uses: robinraju/release-downloader@v1.8
         with:
-          repository: "izer-xyz/librespot-openwrt"
+          repository: "humaita-github/librespot-openwrt-ipk"
           latest: true
           fileName: "*.ipk"
           out-file-path: "packages"
