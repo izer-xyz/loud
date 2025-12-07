@@ -34,7 +34,7 @@ jobs:
           out-file-path: "packages"
         
       - name: Build openwrt image
-        uses: izer-xyz/openwrt-imagebuilder-action@v6
+        uses: izer-xyz/openwrt-imagebuilder-action@main
         with:
           image: ${{ env.image }}
           openwrt-version: ${{ env.openwrt_version }}
