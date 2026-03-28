@@ -31,7 +31,7 @@ jobs:
           repository: "humaita-github/librespot-openwrt-ipk"
           latest: true
           fileName: "*.apk"
-          out-file-path: "packages"
+          out-file-path: "packages.adb"
         
       - name: Build openwrt image
         uses: izer-xyz/openwrt-imagebuilder-action@main
